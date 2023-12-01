@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from store.views import index, product_detail,add_to_cart, cart
+from store.views import index, product_detail,add_to_cart, cart,delete_cart
 from django.conf.urls.static import static
 from shop import settings
 from accounts.views import signup, logout_user,login_user
@@ -30,6 +30,7 @@ urlpatterns = [
     path('logout',logout_user,name='logout'),
     path('login',login_user,name='login'),
     path('cart/',cart,name='cart'),
+    path('cart/delete/',delete_cart,name='delete-cart'),
     
     
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
